@@ -1,0 +1,27 @@
+{{define "header"}}
+<h1 class="mb-0">Jelajahi thread</h1>
+{{end}}
+
+{{define "content"}}
+{{range .Threads}}
+<div class="card mb-4">
+    <div class="card-body">
+        <a href="#" class="d-block card-title text-body mt-1 h5">
+            {{.Title}}
+        </a>
+        <p class="card-text">{{.Description}}</p>
+        <a href="/threads/{{.ID}}" class="btn btn-primary">Jelajahi Thread</a>
+    </div>
+</div>
+{{end}}
+{{end}}
+
+{{define "sidebar"}}
+<div class="card mb-4">
+    <div class="card-body">
+        <h5 class="card-title">Bikin Thread Baru</h5>
+        <p class="card-text">Mulai komunitas dan berbagi pengalaman.</p>
+        <a href="/threads/new" class="btn btn-primary btn-block">Buat Thread</a>
+    </div>
+</div>
+{{end}}

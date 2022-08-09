@@ -1,0 +1,28 @@
+{{define "header"}}
+<h1 class="mb-0">Buat Thread baru</h1>
+{{end}}
+
+{{define "content"}}
+<form action="/threads" method="POST">
+    {{.CSRF}}
+    <div class="form-group">
+        <label>Title</label>
+        <input name="title" type="text" class="form-control {{with .Form.Errors.Title}}is-invalid{{end}}"
+            placeholder="Kasih judul Thread terbaikmu" value="{{with .Form.Title}}{{.}}{{end}}">
+        {{with .Form.Errors.Title}}
+        <div class="invalid-feedback">{{.}}</div>
+        {{end}}
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <textarea name="description" class="form-control {{with .Form.Errors.Description}}is-invalid{{end}}" rows="3"
+            placeholder="Kasih tau mereka threadmu tentang apa?">
+            {{- with .Form.Description}}{{.}}{{end -}}
+        </textarea>
+        {{with .Form.Errors.Description}}
+        <div class="invalid-feedback">{{.}}</div>
+        {{end}}
+    </div>
+    <button type="submit" class="btn btn-primary">Buat Thread</button>
+</form>
+{{end}}
